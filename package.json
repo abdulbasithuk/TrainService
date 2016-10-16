@@ -1,0 +1,33 @@
+{
+  "name": "TrainService",
+  "description": "Departure board for london waterloo station, using trainline API",
+  "version": "0.0.1",
+  "author": {
+    "name": "Abdul Thajudeen",
+    "email": "abdulbasithuk@gmail.com"
+  },
+  "contributors": [],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.16.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.0.3",
+    "redux-thunk": "^1.0.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.3.1",
+    "react-scripts": "^0.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}
