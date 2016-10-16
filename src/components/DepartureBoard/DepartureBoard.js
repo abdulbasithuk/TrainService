@@ -19,15 +19,15 @@ export default class DepartureBoard extends Component {
             <div className='cd-services-container col-xs-6 col-sm-3 col-md-3'>
               <ul className='cd-services'>
               {services.map((service, id) =>
-                <Service serviceInfo={service} key={id}></Service>)
-              }
+                service.transportMode === 'TRAIN'? <Service serviceInfo={service} key={id}></Service>:''
+              )}
               </ul>
             </div>
             <div className='cd-services-container col-xs-6 col-sm-3 col-md-3 col-md-offset-3'>
               <ul className='cd-services'>
               {services.map((service, id) =>
-                <Service serviceInfo={service} key={id}></Service>)
-              }
+                service.transportMode === 'TRAIN'? <Service serviceInfo={service} key={id}></Service>:''
+              )}
               </ul>
             </div>
           </div>
