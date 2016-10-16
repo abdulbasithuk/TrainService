@@ -5,15 +5,18 @@ import React, { Component, PropTypes } from 'react'
 export default class Service extends Component {
   render() {
     const { serviceInfo } = this.props
+    const scheduledTime = new Date(serviceInfo.scheduledInfo.scheduledTime).getTime()
+    const scheduledTimeInHours = new Date(serviceInfo.scheduledInfo.scheduledTime).getHours()
+    const scheduledTimeInMinutes = new Date(serviceInfo.scheduledInfo.scheduledTime).getMinutes()
 
     return (
       <li className='com-service'>
         <a className='cd-service-link'>
           <div className='cd-service-station'>
             <span className='cd-time'>
-              { new Date(serviceInfo.scheduledInfo.scheduledTime).getHours() }
+              { (scheduledTimeInHours < 10 ? '0':'') +  scheduledTimeInHours }
               :
-              { new Date(serviceInfo.scheduledInfo.scheduledTime).getMinutes() }
+              { (scheduledTimeInMinutes < 10 ? '0':'') +  scheduledTimeInMinutes }
             </span>
             <span className='cd-destination'>
               { serviceInfo.destinationList[0].crs }
@@ -37,7 +40,7 @@ export default class Service extends Component {
             </span>
             <span className='cd-service-time'>
               {
-                serviceInfo.realTimeUpdatesInfo && (new Date(serviceInfo.scheduledInfo.scheduledTime) < new Date(serviceInfo.realTimeUpdatesInfo.realTimeServiceInfo.realTime)) ?
+                serviceInfo.realTimeUpdatesInfo && (scheduledTime !== new Date(serviceInfo.realTimeUpdatesInfo.realTimeServiceInfo.realTime).getTime()) ?
                 <span className='cd-delay'>Delayed</span>
                 :
                 <span className='cd-ontime'>On time</span>
