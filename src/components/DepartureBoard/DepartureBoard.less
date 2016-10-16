@@ -1,7 +1,26 @@
-/** Departuer Board **/
+/** Departure Board **/
 
 .com-departure-board {
+  margin: 50px;
   .cd-header .fa {
-    margin: 10px;
+    margin-right: 10px;
+  }
+  .cd-body {
+    .cd-services-container {
+      padding: 15px;
+      border-radius: 5px;
+      position: relative;
+      .cd-services {
+        font-size: 16px;
+        padding: 0;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        max-height: 600px;
+      }
+      &:first-child {
+        margin-left: 40px;
+      }
+    }
   }
 }

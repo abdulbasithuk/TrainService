@@ -23,8 +23,10 @@
     "redux-thunk": "^1.0.0"
   },
   "devDependencies": {
-    "redux-devtools": "^3.3.1",
-    "react-scripts": "^0.4.0"
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "react-scripts": "^0.4.0",
+    "redux-devtools": "^3.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

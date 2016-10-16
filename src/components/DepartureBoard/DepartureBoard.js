@@ -1,4 +1,4 @@
-require('./DepartureBoard.less')
+require('style!css!less!./DepartureBoard.less')
 
 import React, { Component, PropTypes } from 'react'
 import Service from '../Service/Service'
@@ -16,15 +16,19 @@ export default class DepartureBoard extends Component {
             </h1>
           </div>
           <div className='cd-body row'>
-            <div className='col-xs-12 col-sm-6 col-md-6'>
+            <div className='cd-services-container col-xs-6 col-sm-3 col-md-3'>
+              <ul className='cd-services'>
               {services.map((service, id) =>
                 <Service serviceInfo={service} key={id}></Service>)
               }
+              </ul>
             </div>
-            <div className='col-xs-12 col-sm-6 col-md-6'>
+            <div className='cd-services-container col-xs-6 col-sm-3 col-md-3 col-md-offset-3'>
+              <ul className='cd-services'>
               {services.map((service, id) =>
                 <Service serviceInfo={service} key={id}></Service>)
               }
+              </ul>
             </div>
           </div>
       </div>

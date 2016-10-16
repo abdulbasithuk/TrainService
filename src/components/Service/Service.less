@@ -1,0 +1,76 @@
+/** Service **/
+
+.com-service{
+  position: relative;
+  vertical-align: top;
+  color: #000;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color .25s linear;
+  transform: translateZ(0);
+  .cd-service-link {
+    color: #000;
+    display: block;
+    padding: 10px 35px 0px 5px;
+    .cd-service-station {
+      position: relative;
+      padding: 0 0px 0 57px;
+      .cd-platform {
+        float: right;
+        .cd-title {
+          font-size: 14px;
+        }
+        .cd-number {
+          margin-left: 3px;
+        }
+      }
+      .cd-time {
+        font-weight: 700;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: Circular,ArialMT,Arial,sans-serif;
+        letter-spacing: -.05px;
+        font-size: 18px;
+      }
+    }
+    .cd-service-details {
+      font-size: 14px;
+      position: relative;
+      padding: 0 70px 0 57px;
+      .cd-service-operator {
+        color: #8c9190;
+      }
+      .cd-service-time {
+        position: absolute;
+        right:0;
+        .cd-delay {
+          color: red;
+          font-weight: 700;
+        }
+        .cd-ontime {
+          color: #197328;
+          font-weight: 400;
+        }
+      }
+    }
+    .cd-icon {
+      display: inline-block;
+      vertical-align: middle;
+      .fa-chevron-right{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        color: #2e2975;
+        font-size: 15px;
+        font-weight: 700;
+        transform: translate3d(0,-50%,0);
+      }
+    }
+    &:hover {
+      background-color: #d9f9df;
+      text-decoration: none;
+    }
+  }
+}
