@@ -19,8 +19,40 @@
         height: 12px;
         left: -5px;
         position: absolute;
-        top: 0px;
+        top: 2px;
         width: 12px;
+      }
+      .cd-train-circle-not-departed {
+        background: #8ed29a;
+        border: 1px solid #2e2975;
+        border-radius: 50%;
+        left: -8px;
+        position: absolute;
+        top: 0px;
+        width: 18px;
+        height: 18px;
+        .fa {
+          font-size: 12px;
+          position: absolute;
+          right: 2.5px;
+          top: 2px;
+        }
+      }
+      .cd-train-circle-departed {
+        background: #8ed29a;
+        border: 1px solid #2e2975;
+        border-radius: 50%;
+        left: -8px;
+        position: absolute;
+        top: 21px;
+        width: 18px;
+        height: 18px;
+        .fa {
+          font-size: 12px;
+          position: absolute;
+          right: 2.5px;
+          top: 2px;
+        }
       }
     }
     .cd-time {
@@ -44,6 +76,7 @@
        width: 16px;
        height: 16px;
        left: -7px;
+       top:0;
       }
       .cd-container {
         .cd-station-name {
@@ -51,9 +84,22 @@
         }
       }
     }
+    &:first-child {
+      .cd-train-line {
+        .cd-train-circle-not-departed {
+          display: none;
+        }
+      }
+    }
     &:last-child {
       .cd-train-line {
         width: 0px;
+        .cd-train-circle-departed {
+          display: none;
+        }
       }
+    }
+    &.cn-departed {
+      color:gray;
     }
 }

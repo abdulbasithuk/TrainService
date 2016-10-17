@@ -12,8 +12,10 @@ export default class CallingPoint extends Component {
     const departureTimeInHours = departureTime.getHours()
     const departureTimeInMinutes = departureTime.getMinutes()
     const hasDeparted = callingPoint.departure.notApplicable ? false : callingPoint.departure.realTime.realTimeServiceInfo.hasDeparted;
+    const hasArrived = callingPoint.arrival.notApplicable ? false : callingPoint.arrival.realTime.realTimeServiceInfo.hasArrived
+    const componentClassName = hasDeparted ? 'com-calling-point cn-departed' : 'com-calling-point'
     return (
-      <li className='com-calling-point'>
+      <li className={ componentClassName }>
         <div className='cd-time'>
           { (arrivalTimeInHours < 10 ? '0':'') +  arrivalTimeInHours }
           :
@@ -21,6 +23,15 @@ export default class CallingPoint extends Component {
         </div>
         <div className='cd-train-line'>
           <div className='cd-train-line-point'></div>
+            { hasDeparted ?
+              <div className='cd-train-circle-departed'>
+                <i className='fa fa-train'></i>
+              </div>
+              : (hasArrived ?
+              <div className='cd-train-circle-not-departed'>
+                <i className='fa fa-train'></i>
+              </div> : '')
+            }
         </div>
         <div className='cd-container'>
           <div className='cd-station-name'>
