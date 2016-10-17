@@ -5,12 +5,55 @@
     padding: .25em 0;
     min-height: 3em;
     position: relative;
+    .cd-train-line {
+      position: absolute;
+      left: 63px;
+      top: 0.5em;
+      bottom: -0.50em;
+      width: 2px;
+      background: #cac8c9;
+      .cd-train-line-point {
+        background: #fff;
+        border: 1px solid #999;
+        border-radius: 50%;
+        height: 12px;
+        left: -5px;
+        position: absolute;
+        top: 0px;
+        width: 12px;
+      }
+    }
     .cd-time {
       margin-right: 1em;
       display: inline-block;
       float: left;
-      font-family: Circular,ArialMT,Arial,sans-serif;
       letter-spacing: -.05px;
       font-size: 18px;
+    }
+    .cd-container {
+      left: 100px;
+      position: absolute;
+      .cd-status {
+        color: #999;
+        font-size: 14px;
+      }
+    }
+    &:first-child, &:last-child {
+      .cd-train-line .cd-train-line-point {
+       background: #2e2975;
+       width: 16px;
+       height: 16px;
+       left: -7px;
+      }
+      .cd-container {
+        .cd-station-name {
+            font-weight:700;
+        }
+      }
+    }
+    &:last-child {
+      .cd-train-line {
+        width: 0px;
+      }
     }
 }

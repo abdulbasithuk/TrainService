@@ -11,7 +11,7 @@ export default class CallingPoint extends Component {
     const departureTime = callingPoint.departure.realTime &&  !callingPoint.departure.notApplicable ? new Date(callingPoint.departure.realTime.realTimeServiceInfo.realTime): new Date(callingPoint.arrival.scheduled.scheduledTime)
     const departureTimeInHours = departureTime.getHours()
     const departureTimeInMinutes = departureTime.getMinutes()
-    const hasDeparted = callingPoint.departure.notApplicable ? true : callingPoint.departure.realTime.realTimeServiceInfo.hasDeparted;
+    const hasDeparted = callingPoint.departure.notApplicable ? false : callingPoint.departure.realTime.realTimeServiceInfo.hasDeparted;
     return (
       <li className='com-calling-point'>
         <div className='cd-time'>
@@ -19,24 +19,24 @@ export default class CallingPoint extends Component {
           :
           { (arrivalTimeInMinutes < 10 ? '0':'') +  arrivalTimeInMinutes }
         </div>
+        <div className='cd-train-line'>
+          <div className='cd-train-line-point'></div>
+        </div>
         <div className='cd-container'>
-
           <div className='cd-station-name'>
             {
               callingPoint.location.crs
             }
           </div>
+
           <div className='cd-status'>
             { !hasDeparted ?
               (callingPoint.arrival.notApplicable || (arrivalTime.getTime() === new Date(callingPoint.arrival.scheduled.scheduledTime).getTime()) ?
                 <span>On time</span>
                 :
                 <span> Exp. { (departureTimeInHours < 10 ? '0':'') +  departureTimeInHours }:{ (departureTimeInMinutes < 10 ? '0':'') +  departureTimeInMinutes } </span>
-              ) : (
-                !callingPoint.departure.notApplicable ?
-                <span> Dept. { (departureTimeInHours < 10 ? '0':'') +  departureTimeInHours }:{ (departureTimeInMinutes < 10 ? '0':'') +  departureTimeInMinutes } </span>
-                : ''
-              )
+              ) :
+              <span> Dept. { (departureTimeInHours < 10 ? '0':'') +  departureTimeInHours }:{ (departureTimeInMinutes < 10 ? '0':'') +  departureTimeInMinutes } </span>
             }
           </div>
         </div>
