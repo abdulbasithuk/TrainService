@@ -3,6 +3,11 @@ require('style!css!less!./Service.less')
 import React, { Component, PropTypes } from 'react'
 
 export default class Service extends Component {
+  constructor(props){
+    super(props)
+    this.onClick = this.props.onClick.bind(this)
+  }
+
   render() {
     const { serviceInfo } = this.props
     const scheduledTime = new Date(serviceInfo.scheduledInfo.scheduledTime)
@@ -11,7 +16,7 @@ export default class Service extends Component {
 
     return (
       <li className='com-service'>
-        <a className='cd-service-link'>
+        <a className='cd-service-link' onClick={this.onClick.bind(this,serviceInfo.callingPatternUrl)}>
           <div className='cd-service-station'>
             <span className='cd-time'>
               { (scheduledTimeInHours < 10 ? '0':'') +  scheduledTimeInHours }

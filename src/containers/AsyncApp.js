@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchServices } from '../actions'
+import { fetchServices,fetchServiceDetails } from '../actions'
 import DepartureBoard from '../components/DepartureBoard/DepartureBoard'
 
 class AsyncApp extends Component {
@@ -9,11 +9,16 @@ class AsyncApp extends Component {
     dispatch(fetchServices())
   }
 
+  onClick(callingPatternUrl){
+    const { dispatch } = this.props
+    dispatch(fetchServiceDetails(callingPatternUrl))
+  }
+
   render() {
-    const { services } = this.props
+    const { services, serviceDetail } = this.props
     return (
       <div>
-        <DepartureBoard services={services}/>
+        <DepartureBoard services={services} serviceDetail={serviceDetail} onClick={this.onClick.bind(this)}/>
       </div>
     )
   }
@@ -24,10 +29,11 @@ AsyncApp.propTypes = {
 }
 
 function mapStateToProps(state) {
-  const { getDepartureServices } = state
+  const { getDepartureServices, getServiceDetail } = state
 
   return {
-    services: getDepartureServices.items
+    services: getDepartureServices.items,
+    serviceDetail: getServiceDetail.service
   }
 }
 

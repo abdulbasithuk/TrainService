@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { REQUEST_SERVICES, RECEIVE_SERVICES } from '../actions';
+import { REQUEST_SERVICES, RECEIVE_SERVICES, REQUEST_SERVICE_DETAILS, RECEIVE_SERVICE_DETAILS } from '../actions';
 
 function getDepartureServices(state = {isFetching: false, items: []}, action){
   switch (action.type) {
@@ -19,8 +19,27 @@ function getDepartureServices(state = {isFetching: false, items: []}, action){
   }
 }
 
+function getServiceDetail(state = {isFetching: false, service: {}}, action){
+  switch (action.type) {
+    case REQUEST_SERVICE_DETAILS:
+      return Object.assign({}, state, {
+        isFetching: true,
+        service: {}
+      });
+    case RECEIVE_SERVICE_DETAILS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        service: action.service,
+        lastUpdated: action.receivedAt
+      });
+    default:
+     return state;
+  }
+}
+
 const rootReducer = combineReducers({
-  getDepartureServices
+  getDepartureServices,
+  getServiceDetail
 });
 
 export default rootReducer;

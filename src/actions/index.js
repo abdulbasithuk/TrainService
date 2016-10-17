@@ -23,16 +23,17 @@ function receiveServices(servicesCollection) {
   }
 }
 
-function requestServiceDetails() {
+function requestServiceDetails(callingPatternUrl) {
   return {
-    type: REQUEST_SERVICE_DETAILS
+    type: REQUEST_SERVICE_DETAILS,
+    url: callingPatternUrl
   }
 }
 
 function receiveServiceDetails(serviceDetail) {
   return {
     type: RECEIVE_SERVICE_DETAILS,
-    services: serviceDetail,
+    service: serviceDetail,
     receivedAt: Date.now()
   }
 }
@@ -46,9 +47,9 @@ export function fetchServices(){
   }
 }
 
-export function fetchServiceDetails(){
+export function fetchServiceDetails(callingPatternUrl){
+  console.log('fetching service details', callingPatternUrl);
   return (dispatch) => {
-    dispatch(requestServiceDetails())
     return setTimeout(() => {
       return dispatch(receiveServiceDetails(callingPatternStub.service))
     },0)
