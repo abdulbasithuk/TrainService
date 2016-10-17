@@ -48,7 +48,6 @@ export function fetchServices(){
 }
 
 export function fetchServiceDetails(callingPatternUrl){
-  console.log('fetching service details', callingPatternUrl);
   return (dispatch) => {
     return setTimeout(() => {
       return dispatch(receiveServiceDetails(callingPatternStub.service))

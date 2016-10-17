@@ -37,5 +37,6 @@ export default class DepartureBoard extends Component {
 }
 
 DepartureBoard.propTypes = {
-  services: PropTypes.array.isRequired
+  services: PropTypes.array.isRequired,
+  serviceDetail: PropTypes.object
 }

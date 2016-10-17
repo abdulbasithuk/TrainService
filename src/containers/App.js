@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchServices,fetchServiceDetails } from '../actions'
 import DepartureBoard from '../components/DepartureBoard/DepartureBoard'
 
-class AsyncApp extends Component {
+class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchServices())
@@ -16,6 +16,7 @@ class AsyncApp extends Component {
 
   render() {
     const { services, serviceDetail } = this.props
+
     return (
       <div>
         <DepartureBoard services={services} serviceDetail={serviceDetail} onClick={this.onClick.bind(this)}/>
@@ -24,17 +25,17 @@ class AsyncApp extends Component {
   }
 }
 
-AsyncApp.propTypes = {
-  services: PropTypes.array.isRequired
+App.propTypes = {
+  services: PropTypes.array.isRequired,
+  serviceDetail: PropTypes.object
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   const { getDepartureServices, getServiceDetail } = state
-
   return {
     services: getDepartureServices.items,
     serviceDetail: getServiceDetail.service
   }
 }
 
-export default connect(mapStateToProps)(AsyncApp)
+export default connect(mapStateToProps)(App)

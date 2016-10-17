@@ -1,6 +1,7 @@
 require('style!css!less!./Service.less')
 
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 export default class Service extends Component {
   constructor(props){
@@ -16,7 +17,7 @@ export default class Service extends Component {
 
     return (
       <li className='com-service'>
-        <a className='cd-service-link' onClick={this.onClick.bind(this,serviceInfo.callingPatternUrl)}>
+        <Link className='cd-service-link' to={serviceInfo.serviceIdentifier} onClick={this.onClick.bind(this,serviceInfo.callingPatternUrl)}>
           <div className='cd-service-station'>
             <span className='cd-time'>
               { (scheduledTimeInHours < 10 ? '0':'') +  scheduledTimeInHours }
@@ -55,7 +56,7 @@ export default class Service extends Component {
           <div className='cd-icon'>
             <i className='fa fa-chevron-right'></i>
           </div>
-        </a>
+        </Link>
       </li>
     )
   }

@@ -19,7 +19,7 @@ function getDepartureServices(state = {isFetching: false, items: []}, action){
   }
 }
 
-function getServiceDetail(state = {isFetching: false, service: {}}, action){
+function getServiceDetail(state = {isFetching: false,service: {}}, action){
   switch (action.type) {
     case REQUEST_SERVICE_DETAILS:
       return Object.assign({}, state, {
