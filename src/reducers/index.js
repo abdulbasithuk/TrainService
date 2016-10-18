@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { REQUEST_SERVICES, RECEIVE_SERVICES, REQUEST_SERVICE_DETAILS, RECEIVE_SERVICE_DETAILS } from '../actions';
 
+// Reducer for managing the departure board state
 function getDepartureServices(state = {isFetching: false, items: []}, action){
   switch (action.type) {
     case REQUEST_SERVICES:
@@ -19,6 +20,7 @@ function getDepartureServices(state = {isFetching: false, items: []}, action){
   }
 }
 
+// Reducer for managing the calling pattern state
 function getServiceDetail(state = {isFetching: false,service: {}}, action){
   switch (action.type) {
     case REQUEST_SERVICE_DETAILS:
