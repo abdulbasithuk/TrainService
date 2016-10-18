@@ -1,10 +1,10 @@
-# TravelService
+# Travelservice
 
 Live departure board - London Waterloo station, using Trainline API
 
 ### Tech
 
-TravelService is build with following dependencies:
+Travelservice is build with following dependencies:
 
 * ReactJs
 * Redux
@@ -31,6 +31,8 @@ For production build
 ```sh
 $ npm run build
 ```
+### URL (with stub data)
+###### https://trainservice.firebaseapp.com
 
 License
 ----
