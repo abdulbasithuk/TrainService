@@ -9,6 +9,7 @@ Travelservice is build with following dependencies:
 * ReactJs
 * Redux
 * React router
+* Webpack
 * Babel
 * Twitter Bootstrap
 * node.js
